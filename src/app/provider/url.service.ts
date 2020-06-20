@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-//URL para conexão com o banco de dados MySQL
+//URL para chamar os arquivos PHP que fazem a manipulação de dados
 
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class UrlService {
 
-    url: string = "";
+    url: string = "http://localhost/Curso%20Udemy%20-%20Ionic%204%20e%205/catalogo/Catalogo/php/";
   constructor() { }
 
   getURL(){
