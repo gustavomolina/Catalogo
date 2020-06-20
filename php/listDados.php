@@ -31,7 +31,7 @@ try {
 			$out .= '"criacao": "'.$result["data_cadastro_prod"].'"}';
 		}
 		$out .= "]";
-		echo $out;
+		echo utf8_encode($out);
 
 
 
