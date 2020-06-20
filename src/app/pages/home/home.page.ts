@@ -13,20 +13,21 @@ export class HomePage implements OnInit {
   produtos: any;
 
   constructor(public http: HttpClient, public serviceUrl: UrlService) { 
-      this.listProdutos();
-      console.log(this.produtos);
+      //this.listProdutos();
+      //console.log(this.produtos);
 
   }
 
-  listProdutos(){
+  /*listProdutos(){
     //GET na url 'http://localhost/Curso%20Udemy%20-%20Ionic%204%20e%205/catalogo/Catalogo/php/listDados'
-    this.produtos = this.http.get(this.serviceUrl.getURL()+"listDados.php").pipe(map(res => res.json()))
+    this.produtos = this.http.get(this.serviceUrl.getURL()+"listDados.php")
+    //.pipe(map(res => res.json()))
 
     .subscribe(listDados => {
       
       this.produtos = listDados;
     });
-/*
+
     
     //Coloca em formato JSON
     
@@ -36,13 +37,18 @@ export class HomePage implements OnInit {
       listDados => {
            listDados;
       }
-    );*/
+    );
     
 
-  }
+  }*/
 
 
   ngOnInit() {
+    this.http.get(this.serviceUrl.getURL()+"listDados.php")    
+    .subscribe(produtos => {
+      console.log(produtos);
+      this.produtos = produtos;
+    })
   }
 
 }
