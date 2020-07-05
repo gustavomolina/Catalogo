@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class UrlService {
 
-    url: string = "http://localhost/Curso%20Udemy%20-%20Ionic%204%20e%205/catalogo/Catalogo/php/";
+    url: string = "http://localhost/cursos_udemy/Catalogo/php/";
   constructor() { }
 
   getURL(){
