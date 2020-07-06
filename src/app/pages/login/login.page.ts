@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
+import { UrlService } from 'src/app/provider/url.service';
+import { map } from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import { pipe } from 'rxjs';
+
 
 @Component({
   selector: 'app-login',
@@ -12,12 +17,13 @@ export class LoginPage implements OnInit {
   senha: string;
 
 
-  constructor(public alert: AlertController) { }
+  constructor(public alert: AlertController, public urlService: UrlService, public http: HttpClient, public naav: NavController) { }
 
   ngOnInit() {
   }
 
   async logar() {
+    //Verifica se algum dos campos não está preenchido
     if (this.email == undefined || this.senha == undefined) {
 
       const alert = await this.alert.create({
@@ -27,8 +33,20 @@ export class LoginPage implements OnInit {
       });
       await alert.present();
 
-    } else {
+    } else {//Se os campos forem preenchidos
+      
+      this.http.get(this.urlService.getURL()+"login.php?email="+this.email+"&senha="+this.senha)
+      .subscribe(
+          
+          (data:any) => {
+            //Se o get retornou a mensagem de "sim" para o subcampo "logado" do campo "msg", o login foi feito com sucesso
+           if(data.msg.logado=="sim"){
+              //Vai para home
+              this.naav.navigateBack('home');
 
+            }
+          }
+        );
     }
   }
 

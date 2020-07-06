@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header('Content-Type: text/html; charset=utf-8');
-$host = "mysql:host=localhost;dbname=db_catalago";
+$host = "mysql:host=localhost;dbname=db_catalogo";
 $usuario = "root";
 $senha = "";
 
