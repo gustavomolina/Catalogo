@@ -1,4 +1,5 @@
 # Aplicativo de Catálogo
+Aplicativo para gerenciamento de catálogo via Ionic e PHP
 
 ## Pacotes instalados:
 * angular-http
